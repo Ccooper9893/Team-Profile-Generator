@@ -190,7 +190,9 @@ function addEngineer() {
 
 // Generate the html file
 function finishBuild() {
-    generateHTML(teamArr);
+    fs.writeFile('demo.html', generateHTML(teamArr), (err) => {
+        err ? console.log('There has been an error!') : 'Your HTML file has been created and is located in the dist folder.'
+    })
 };
 
 // Starts the question prompts
