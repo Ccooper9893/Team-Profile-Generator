@@ -50,7 +50,7 @@ function generateHTML(employeeList) {
         }
     })
 
-    teamHTML.join('').replace(/,/,''); // Converts the teamHTML array into one string
+    teamHTML.join('').replaceAll(',', ''); // Converts the teamHTML array into one string !HELP(remove commas??)
 
     // HTML template for inserting html formatting cards
     const htmlTemplate = `<!doctype html>

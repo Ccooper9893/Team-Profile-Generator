@@ -1,5 +1,13 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Chakra Petch', sans-serif;
+    background-image: url(../src/paper.webp);
+    background-repeat: repeat;
 }
 
 .card {

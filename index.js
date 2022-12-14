@@ -190,8 +190,8 @@ function addEngineer() {
 
 // Generate the html file
 function finishBuild() {
-    fs.writeFile('demo.html', generateHTML(teamArr), (err) => {
-        err ? console.log('There has been an error!') : 'Your HTML file has been created and is located in the dist folder.'
+    fs.writeFile('./dist/roster.html', generateHTML(teamArr), (err) => {
+        err ? console.log('There has been an error!') : console.log('Your HTML file has been created and is located in the dist folder.')
     })
 };
 
