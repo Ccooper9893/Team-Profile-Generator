@@ -4,8 +4,8 @@ describe('Employee class', () => {
 
     describe('new Employee class', () => {
         it('should create a new employee object', () => {
-            const newClass = new Employee();
-        expect(newClass).toBeInstanceOf(Employee);
+            const newObj = new Employee();
+        expect(typeof newObj).toBe('object');
         });
     });
 
