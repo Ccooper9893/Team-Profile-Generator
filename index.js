@@ -1,6 +1,7 @@
 // Importing modules
 const inquirer = require('inquirer')
 const fs = require('fs')
+const generateHTML = require('./src/generateMarkdown')
 const Manager = require('./lib/manager')
 const Intern = require('./lib/intern')
 const Engineer = require('./lib/engineer')
@@ -117,25 +118,25 @@ const questionObj ={
         type: 'list',
         name: 'addEmployee',
         message: 'Please specify an additional team member to add.  -> ',
-        choices: ['Intern', 'Engineer', 'I am finished']
+        choices: ['Intern', 'Engineer', 'Finish building team']
     }
 }
-// Destructed questionObj for easier access to questions
+// Destructed questionObj for easier access to questions (Ridding of repeat questions)
 const {managerNameInputQ, nameInputQ, idNumberQ,  emailInputQ,  officeNumQ, confirmQ, schoolQ, githubQ} = questionObj;
 
-// Adding Manager to start team build
-function start() {
+// Prompts user questions for adding first team member (manager)
+function start() { 
     inquirer.prompt([managerNameInputQ, idNumberQ,  emailInputQ,  officeNumQ, confirmQ ])
     .then((data) => {
         const manager = new Manager(data.name, data.id, data.email, data.officeNumber) // Creates new Manager object
-        teamArr.push(manager); //Pushes team member onto array
+        teamArr.push(manager); //Pushes team member onto team array
 
         switch(data.addEmployee) { // Checks if user wants to add another team member
             case 'Intern': addIntern();
             break;
             case 'Engineer': addEngineer();
             break;
-            case 'I am finished': generateHTML();
+            case 'Finish building team': finishBuild();
             break;
         }
     })
@@ -144,10 +145,11 @@ function start() {
     })
 }
 
-function addIntern() {
+// Prompts user questions for adding an new team member (intern)
+function addIntern() { 
     inquirer.prompt([nameInputQ, idNumberQ, emailInputQ, schoolQ, confirmQ])
     .then((data) => {
-        let newIntern = new Intern(data.name, data.id, data.email, data.school);
+        let newIntern = new Intern(data.name, data.id, data.email, data.school); //Creates new Intern object
         teamArr.push(newIntern);
 
         switch(data.addEmployee) { // Checks if user wants to add another team member
@@ -155,7 +157,7 @@ function addIntern() {
             break;
             case 'Engineer': addEngineer();
             break;
-            case 'I am finished': generateHTML();
+            case 'Finish building team': finishBuild();
             break;
         }
     })
@@ -164,18 +166,19 @@ function addIntern() {
     })
 }
 
-function addEngineer() {
+// Prompts user questions for adding an new team member (Engineer)
+function addEngineer() { 
     inquirer.prompt([nameInputQ, idNumberQ, emailInputQ, githubQ, confirmQ])
         .then((data) => {
-            let newEngineer = new Engineer(data.name, data.id, data.email, data.github);
-            teamArr.push(newEngineer)
+            let newEngineer = new Engineer(data.name, data.id, data.email, data.github); //Creates new Engineer object
+            teamArr.push(newEngineer) //Pushes team member onto team array
 
             switch(data.addEmployee) { // Checks if user wants to add another team member
                 case 'Intern': addIntern();
                 break;
                 case 'Engineer': addEngineer();
                 break;
-                case 'I am finished': generateHTML();
+                case 'Finish building team': finishBuild();
                 break;
             }
         })
@@ -185,9 +188,10 @@ function addEngineer() {
         
 }
 
-function generateHTML() {
-    console.log(typeof teamArr[0])
-}
+// Generate the html file
+function finishBuild() {
+    generateHTML(teamArr);
+};
 
 // Starts the question prompts
 start()
