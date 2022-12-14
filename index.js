@@ -1,13 +1,13 @@
 // Importing modules
-const inquirer = require('inquirer')
-const fs = require('fs')
-const generateHTML = require('./src/generateMarkdown')
-const Manager = require('./lib/manager')
-const Intern = require('./lib/intern')
-const Engineer = require('./lib/engineer')
+const inquirer = require('inquirer');
+const fs = require('fs');
+const generateHTML = require('./src/generateMarkdown');
+const Manager = require('./lib/manager');
+const Intern = require('./lib/intern');
+const Engineer = require('./lib/engineer');
 
 // Current Team Array
-const teamArr = []
+const teamArr = [];
 
 // Questions for User
 const questionObj ={
@@ -120,15 +120,15 @@ const questionObj ={
         message: 'Please specify an additional team member to add.  -> ',
         choices: ['Intern', 'Engineer', 'Finish building team']
     }
-}
-// Destructed questionObj for easier access to questions (Ridding of repeat questions)
+};
+// Destructed questionObj for easier access to questions (Ridding of repeat code)
 const {managerNameInputQ, nameInputQ, idNumberQ,  emailInputQ,  officeNumQ, confirmQ, schoolQ, githubQ} = questionObj;
 
 // Prompts user questions for adding first team member (manager)
 function start() { 
     inquirer.prompt([managerNameInputQ, idNumberQ,  emailInputQ,  officeNumQ, confirmQ ])
     .then((data) => {
-        const manager = new Manager(data.name, data.id, data.email, data.officeNumber) // Creates new Manager object
+        const manager = new Manager(data.name, data.id, data.email, data.officeNumber); // Creates new Manager object
         teamArr.push(manager); //Pushes team member onto team array
 
         switch(data.addEmployee) { // Checks if user wants to add another team member
@@ -138,12 +138,12 @@ function start() {
             break;
             case 'Finish building team': finishBuild();
             break;
-        }
+        };
     })
     .catch((err) => {
-        console.log(err)
+        console.log(err);
     })
-}
+};
 
 // Prompts user questions for adding an new team member (intern)
 function addIntern() { 
@@ -162,16 +162,16 @@ function addIntern() {
         }
     })
     .catch((err) => {
-        console.log(err)
+        console.log(err);
     })
-}
+};
 
 // Prompts user questions for adding an new team member (Engineer)
 function addEngineer() { 
     inquirer.prompt([nameInputQ, idNumberQ, emailInputQ, githubQ, confirmQ])
         .then((data) => {
             let newEngineer = new Engineer(data.name, data.id, data.email, data.github); //Creates new Engineer object
-            teamArr.push(newEngineer) //Pushes team member onto team array
+            teamArr.push(newEngineer); //Pushes team member onto team array
 
             switch(data.addEmployee) { // Checks if user wants to add another team member
                 case 'Intern': addIntern();
@@ -183,19 +183,19 @@ function addEngineer() {
             }
         })
         .catch((err) => {
-            console.log(err)
+            console.log(err);
         })
         
-}
+};
 
 // Generate the html file
 function finishBuild() {
     fs.writeFile('./dist/roster.html', generateHTML(teamArr), (err) => {
         err ? console.log('There has been an error!') : console.log('Your HTML file has been created and is located in the dist folder.')
-    })
+    });
 };
 
 // Starts the question prompts
-start()
+start();
 
 

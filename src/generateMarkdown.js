@@ -1,9 +1,9 @@
-const fs = require('fs')
+const fs = require('fs');
 
 
 function generateHTML(employeeList) {
     // Creates an empty array to push individual team members cards onto
-    const teamHTML = []
+    const teamHTML = [];
 
     // Mapping through team array to create cards
     employeeList.map(member => { 
@@ -47,8 +47,8 @@ function generateHTML(employeeList) {
                 </ul>
             </div>`);
             break;
-        }
-    })
+        };
+    });
 
     teamHTML.join('').replaceAll(',', ''); // Converts the teamHTML array into one string !HELP(remove commas??)
 
@@ -75,9 +75,9 @@ function generateHTML(employeeList) {
         </body>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
       </body>
-    </html>`
+    </html>`;
     return htmlTemplate;
 }
 
-module.exports = generateHTML
+module.exports = generateHTML;
 
