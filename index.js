@@ -16,14 +16,14 @@ const questionObj ={
         name: 'name',
         message: 'Please enter the name of your team manager -> ',
         validate: userInput => { //Requires a valid employee name
-            return userInput && isNaN(userInput) ? true : console.warn('\x1b[31m', '\nPlease provide a valid name!') }
+            return userInput && isNaN(userInput) ? true : console.warn('\x1b[31m', '\nPlease provide a valid name!\n') }
     },
     nameInputQ: {
         type: 'input',
         name: 'name',
         message: 'Please enter the name of your new team member -> ',
         validate: userInput => { //Requires a valid employee name
-            return userInput && isNaN(userInput) ? true : console.warn('\x1b[31m', '\nPlease provide a valid name!') }
+            return userInput && isNaN(userInput) ? true : console.warn('\x1b[31m', '\nPlease provide a valid name!\n') }
     },
 
     emailInputQ: {
@@ -31,7 +31,7 @@ const questionObj ={
         name: 'email',
         message: 'Please provide the team member\'s email address -> ',
         validate: userInput => {
-            return userInput && userInput.includes('@') && userInput.includes('.com') ? true : console.warn('\x1b[31m', '\nPlease provide a valid email address!')}
+            return userInput && userInput.includes('@') && userInput.includes('.com') ? true : console.warn('\x1b[31m', '\nPlease provide a valid email address!\n')}
     },
 
     idNumberQ: {
@@ -39,7 +39,7 @@ const questionObj ={
         name: 'id',
         message: 'Please provide a team member ID -> ',
         validate: userInput => { //Requires valid employee ID
-            return userInput && !isNaN(userInput) ? true : console.warn('\x1b[31m', '\nPlease provide a valid ID number!') }
+            return userInput && !isNaN(userInput) ? true : console.warn('\x1b[31m', '\nPlease provide a valid ID number!\n') }
     },
 
     officeNumQ: {
@@ -47,7 +47,7 @@ const questionObj ={
         name: 'officeNumber',
         message: 'Please enter the manager\'s office number -> ',
         validate: userInput => { //Requires valid office number
-            return userInput && !isNaN(userInput) ? true : console.warn('\x1b[31m', '\nPlease provide a valid ID number!') }
+            return userInput && !isNaN(userInput) ? true : console.warn('\x1b[31m', '\nPlease provide a valid ID number!\n') }
     },
 
     githubQ: {
@@ -55,7 +55,7 @@ const questionObj ={
         name: 'githubUsername',
         message: 'Please enter the engineer\'s Github username -> ',
         validate: userInput => { //Requires a valid Github username
-            return userInput && isNaN(userInput) ? true : console.warn('\x1b[31m', '\nPlease provide a valid name!') }
+            return userInput && isNaN(userInput) ? true : console.warn('\x1b[31m', '\nPlease provide a valid name!\n') }
     },
     
     schoolQ: {
@@ -63,7 +63,7 @@ const questionObj ={
         name: 'school',
         message: 'Please enter the name of school the intern attended -> ',
         validate: userInput => { //Requires a valid school name
-            return userInput && isNaN(userInput) ? true : console.warn('\x1b[31m', '\nPlease provide a valid name!') }
+            return userInput && isNaN(userInput) ? true : console.warn('\x1b[31m', '\nPlease provide a valid name!\n') }
     },
 
     githubQ: {
@@ -71,13 +71,13 @@ const questionObj ={
         name: 'github',
         message: 'Please enter the engineer\'s Github username -> ',
         validate: userInput => { //Requires a valid school name
-            return userInput && isNaN(userInput) ? true : console.warn('\x1b[31m', '\nPlease provide a valid name!') }
+            return userInput && isNaN(userInput) ? true : console.warn('\x1b[31m', '\nPlease provide a valid name!\n') }
     },
 
     confirmQ: {
         type: 'list',
         name: 'addEmployee',
-        message: 'Please specify an additional team member to add.  -> ',
+        message: '\nPlease specify an additional team member to add.  -> ',
         choices: ['Intern', 'Engineer', 'Finish building team']
     }
 };
@@ -151,7 +151,7 @@ function addEngineer() {
 // Generate the html file
 function finishBuild() {
     fs.writeFile('./dist/roster.html', generateHTML(teamArr), (err) => {
-        err ? console.log('There has been an error!') : console.log('Your HTML file has been created and is located in the dist folder.')
+        err ? console.log('There has been an error!') : console.log('\x1b[32m', '\nYour HTML file has been successfully created and is located in the distribution folder.\n')
     });
 };
 
