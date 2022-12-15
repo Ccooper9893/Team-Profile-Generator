@@ -14,8 +14,8 @@ function generateHTML(employeeList) {
                 // Create and push custom card into teamHTML array
                 teamHTML.push(`<div class="card d-flex" style="width: 16rem;">
             <ul class="list-group list-group-flush">
-                <li class="list-group-item bg-dark text-white"><span class="name">${member.name}</span><br><span class="role">${member.getRole()}</span></li>
-                <li class="list-group-item"><span class="title">Email:</span> ${member.email}</li>
+                <li class="list-group-item bg-dark text-white"><span class="name">${member.name}</span><br><span class="role">${member.getRole()} &#x2654;</span></li>
+                <li class="list-group-item"><span class="title">Email:</span> <a href="mailto:${member.email}">${member.email}</a></li>
                 <li class="list-group-item"><span class="title">ID:</span> ${member.id}</li>
                 <li class="list-group-item"><span class="title">Office number:</span> ${member.officeNumber}</li>
             </ul>
@@ -27,8 +27,8 @@ function generateHTML(employeeList) {
                 // Create and push custom card into teamHTML array
                 teamHTML.push(`<div class="card d-flex" style="width: 16rem;">
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item bg-dark text-white"><span class="name">${member.name}</span><br><span class="role">${member.getRole()}</span></li>
-                    <li class="list-group-item"><span class="title">Email:</span> ${member.email}</li>
+                    <li class="list-group-item bg-dark text-white"><span class="name">${member.name}</span><br><span class="role">${member.getRole()} &#x2659;</span></li>
+                    <li class="list-group-item"><span class="title">Email:</span> <a href="mailto:${member.email}" target="_blank">${member.email}</a></li>
                     <li class="list-group-item"><span class="title">ID:</span> ${member.id}</li>
                     <li class="list-group-item"><span class="title">School: </span> ${member.school}</li>
                 </ul>
@@ -40,10 +40,10 @@ function generateHTML(employeeList) {
                 // Create and push custom card into teamHTML array
                 teamHTML.push(`<div class="card d-flex" style="width: 16rem;">
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item bg-dark text-white"><span class="name">${member.name}</span><br><span class="role">${member.getRole()}</span></li>
-                    <li class="list-group-item"><span class="title">Email:</span> ${member.email}</li>
+                    <li class="list-group-item bg-dark text-white"><span class="name">${member.name}</span><br><span class="role">${member.getRole()} &#x2658;</span></li>
+                    <li class="list-group-item"><span class="title">Email:</span> <a href="mailto:${member.email}">${member.email}</a></li>
                     <li class="list-group-item"><span class="title">ID:</span> ${member.id}</li>
-                    <li class="list-group-item"><span class="title">Github username:</span> ${member.github}</li>
+                    <li class="list-group-item"><span class="title">Github username:</span> <a href="https://github.com/${member.github}" target="_blank">${member.github}</a></li>
                 </ul>
             </div>`);
             break;
