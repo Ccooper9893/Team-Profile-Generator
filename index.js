@@ -16,24 +16,14 @@ const questionObj ={
         name: 'name',
         message: 'Please enter the name of your team manager -> ',
         validate: userInput => { //Requires a valid employee name
-            if (userInput && isNaN(userInput)) {
-            return true;
-            } else {
-                console.warn('\x1b[31m', '\nPlease provide a valid name!')
-            }
-        }
+            return userInput && isNaN(userInput) ? true : console.warn('\x1b[31m', '\nPlease provide a valid name!') }
     },
     nameInputQ: {
         type: 'input',
         name: 'name',
         message: 'Please enter the name of your new team member -> ',
         validate: userInput => { //Requires a valid employee name
-            if (userInput && isNaN(userInput)) {
-            return true;
-            } else {
-                console.warn('\x1b[31m', '\nPlease provide a valid name!')
-            }
-        }
+            return userInput && isNaN(userInput) ? true : console.warn('\x1b[31m', '\nPlease provide a valid name!') }
     },
 
     emailInputQ: {
@@ -41,12 +31,7 @@ const questionObj ={
         name: 'email',
         message: 'Please provide the team member\'s email address -> ',
         validate: userInput => {
-            if (userInput && userInput.includes('@') && userInput.includes('.com')) {
-                return true
-            } else {
-                console.warn('\x1b[31m', '\nPlease provide a valid email address!') 
-            }
-        }
+            return userInput && userInput.includes('@') && userInput.includes('.com') ? true : console.warn('\x1b[31m', '\nPlease provide a valid email address!')}
     },
 
     idNumberQ: {
@@ -54,12 +39,7 @@ const questionObj ={
         name: 'id',
         message: 'Please provide a team member ID -> ',
         validate: userInput => { //Requires valid employee ID
-            if (userInput && !isNaN(userInput)) {
-                return true;
-            } else {
-                console.warn('\x1b[31m', '\nPlease provide a valid ID number!')
-            }
-        }
+            return userInput && !isNaN(userInput) ? true : console.warn('\x1b[31m', '\nPlease provide a valid ID number!') }
     },
 
     officeNumQ: {
@@ -67,12 +47,7 @@ const questionObj ={
         name: 'officeNumber',
         message: 'Please enter the manager\'s office number -> ',
         validate: userInput => { //Requires valid office number
-            if (userInput && !isNaN(userInput)) {
-                return true;
-            } else {
-                console.warn('\x1b[31m', '\nPlease provide a valid office number!')
-            }
-        }
+            return userInput && !isNaN(userInput) ? true : console.warn('\x1b[31m', '\nPlease provide a valid ID number!') }
     },
 
     githubQ: {
@@ -80,12 +55,7 @@ const questionObj ={
         name: 'githubUsername',
         message: 'Please enter the engineer\'s Github username -> ',
         validate: userInput => { //Requires a valid Github username
-            if (userInput && isNaN(userInput)) {
-            return true;
-            } else {
-                console.warn('\x1b[31m', '\nPlease provide a valid Github username!')
-            }
-        }  
+            return userInput && isNaN(userInput) ? true : console.warn('\x1b[31m', '\nPlease provide a valid name!') }
     },
     
     schoolQ: {
@@ -93,12 +63,7 @@ const questionObj ={
         name: 'school',
         message: 'Please enter the name of school the intern attended -> ',
         validate: userInput => { //Requires a valid school name
-            if(userInput && isNaN(userInput)) {
-                return true;
-            } else {
-                console.warn('\x1b[31m', '\nPlease provide a valid school name!')
-            }
-        }
+            return userInput && isNaN(userInput) ? true : console.warn('\x1b[31m', '\nPlease provide a valid name!') }
     },
 
     githubQ: {
@@ -106,12 +71,7 @@ const questionObj ={
         name: 'github',
         message: 'Please enter the engineer\'s Github username -> ',
         validate: userInput => { //Requires a valid school name
-            if(userInput && isNaN(userInput)) {
-                return true;
-            } else {
-                console.warn('\x1b[31m', '\nPlease provide a valid Github username!')
-            }
-        }
+            return userInput && isNaN(userInput) ? true : console.warn('\x1b[31m', '\nPlease provide a valid name!') }
     },
 
     confirmQ: {
