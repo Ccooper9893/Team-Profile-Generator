@@ -20,8 +20,8 @@ describe('Employee class', () => {
         it('should return an id using getId method', () => {
             const employee = new Employee('John', 10);
         expect(employee.getId()).toBe(10)
-        })
-    })
+        });
+    });
 
     describe('getEmail', () => {
         it('should return an email using getEmail method', () => {
