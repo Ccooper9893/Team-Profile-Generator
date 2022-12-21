@@ -150,7 +150,7 @@ function addEngineer() {
 
 // Generate the html file
 function finishBuild() {
-    fs.writeFile('./dist/roster.html', generateHTML(teamArr), (err) => {
+    fs.writeFile('./dist/generatedHtml.html', generateHTML(teamArr), (err) => {
         err ? console.log('There has been an error!') : console.log('\x1b[32m', '\nYour HTML file has been successfully created and is located in the distribution folder.\n')
     });
 };
