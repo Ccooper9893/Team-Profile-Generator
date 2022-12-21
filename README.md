@@ -27,7 +27,9 @@ Guidelines for installing this application:
 
 ## *Usage*
 ___
-Insert video here
+- First, start the application by typing "node index.js" or "npm start"in the terminal and press enter. When prompted a question input your answer. When all questions are answered the application will generate a html file that will be located in the dist folder.
+- Walkthrough Guide: https://drive.google.com/file/d/1QhC-8L8oa1xoyonnppcn3SoQaONEMZoq/view?usp=sharing
+
 
 
 ## *Software*
